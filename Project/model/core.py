@@ -19,7 +19,9 @@ from openai import ChatCompletion
 from .api import setup_api_key
 from functions.utils.file import read_content
 
-setup_api_key()
+API_KEY = ""
+
+setup_api_key(key=API_KEY)
 
 class TextSummarizerModel:
     

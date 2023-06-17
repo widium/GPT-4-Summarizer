@@ -12,5 +12,5 @@
 
 import openai   
 
-def setup_api_key(key : str ="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"):
+def setup_api_key(key : str):
     openai.api_key = key
