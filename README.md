@@ -7,3 +7,5 @@ pip install -r requirements.txt
 cd web_app/demo 
 pc run
 ~~~
+
+![](https://i.imgur.com/0C9sQLI.png)
