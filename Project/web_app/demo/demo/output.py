@@ -19,15 +19,30 @@ def create_output_box()->pc.Component:
     heading = pc.center(pc.markdown("### Summary", ))
     
     output_text = pc.box(
-        pc.markdown(
-            SummaryState.summarization,
-        ),
+        pc.markdown(SummaryState.summary),
         style=DEMO_BOX_STYLE,
+    )
+    
+    loading_render = pc.stack(
+        pc.center(pc.circular_progress(is_indeterminate=True)),
+        pc.skeleton_circle(size="30px"),
+        pc.skeleton_text(no_of_lines=8),
+        width="50%",
+    )
+    
+    
+    output = pc.cond(
+        condition=SummaryState.processing,
+        c1=loading_render,
+        c2=pc.cond(
+            condition=SummaryState.is_finish,
+            c1=output_text,
+        ),
     )
     
     stack = pc.vstack(
         heading,
-        output_text,
+        output,
         spacing="3em",
     )
     

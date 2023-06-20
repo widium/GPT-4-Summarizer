@@ -13,13 +13,14 @@
 import sys
 sys.path.append("/home/widium/Programming/AI/GPT4-Summarizer/Project")
 
+from typing import List, Dict
 from openai import Completion
 from openai import ChatCompletion
 
 from .api import setup_api_key
 from functions.utils.file import read_content
 
-API_KEY = ""
+API_KEY = "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"
 
 setup_api_key(key=API_KEY)
 
@@ -30,7 +31,7 @@ class TextSummarizerModel:
         self.model = model_version
         self.pre_prompting = read_content(filepath=pre_prompt_path)
     
-    def summarize(self, role_path : str, content : str)->str:
+    def processing(self, role_path : str, content : str):
         
         role = read_content(filepath=role_path)
         content = self.pre_prompting.replace("content", content)
@@ -39,6 +40,10 @@ class TextSummarizerModel:
             {"role" : "system", "content" : role},
             {"role" : "assistant", "content" : content},
         ]
+        
+        return (messages)
+        
+    def summarize(self, messages : List[Dict])->str:
 
         generations = ChatCompletion.create(
             model=self.model,
