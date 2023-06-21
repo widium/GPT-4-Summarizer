@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 import pynecone as pc
-from .state import SummaryState
-from .style import DEMO_BOX_STYLE
+from ..state import SummaryState
+from ..style import DEMO_BOX_STYLE
 
 def create_output_box()->pc.Component:
     

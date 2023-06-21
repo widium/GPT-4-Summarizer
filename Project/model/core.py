@@ -17,12 +17,7 @@ from typing import List, Dict
 from openai import Completion
 from openai import ChatCompletion
 
-from .api import setup_api_key
 from functions.utils.file import read_content
-
-API_KEY = "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"
-
-setup_api_key(key=API_KEY)
 
 class TextSummarizerModel:
     

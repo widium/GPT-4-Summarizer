@@ -14,8 +14,8 @@ import sys
 sys.path.append("/home/widium/Programming/AI/GPT4-Summarizer/Project")
 
 import pynecone as pc
-from .state import SummaryState
-from .style import DEMO_BOX_STYLE
+from .. state import SummaryState
+from .. style import DEMO_BOX_STYLE
 from model.tokenization import TOKENS_LENGHT
 
 def create_input_box()->pc.Component:

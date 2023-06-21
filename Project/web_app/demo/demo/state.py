@@ -14,6 +14,12 @@ sys.path.append("/home/widium/Programming/AI/GPT4-Summarizer/Project")
 
 import pynecone as pc
 from pathlib import Path
+
+from time import sleep
+
+from functions.utils.file import read_content
+
+from model.api import verify_api_key, setup_api_key
 from model.core import TextSummarizerModel
 from model.tokenization import count_tokens_in_message
 
@@ -30,16 +36,30 @@ summarizer = TextSummarizerModel(
 
 class SummaryState(pc.State):
     
+    api_key : str = ""
+    is_valid : bool = False
     content : str = ""
     summary : str = ""
+    key_processing : bool = False
     processing : bool = False
     is_finish : bool = False
     nbr_tokens : int = 0
     
+    def test_api_key(self):
+        
+        self.is_valid = False
+        
+        if (verify_api_key(api_key=self.api_key)):
+            self.is_valid = True
+            setup_api_key(key=self.api_key)
+            
+    def clear_api_key(self):
+        self.api_key = ""
+        self.is_valid = False
+        
     def text_processing(self):
         
         self.processing = True 
-        self.nbr_tokens = 0
         self.is_finish = False
         
         self.messages = summarizer.processing(
@@ -48,6 +68,8 @@ class SummaryState(pc.State):
         )
     
     def count_token(self):
+        
+        self.nbr_tokens = 0
         
         self.nbr_tokens = count_tokens_in_message(
             messages=self.messages,
@@ -64,7 +86,8 @@ class SummaryState(pc.State):
             self.is_finish = True
             
         except:
-            self.image_processing = False
-            return pc.window_alert("Error with OpenAI Execution.")
+            self.processing = False
+            self.is_finish = True
+            return pc.window_alert("Error with OpenAI Execution. Verify your API KEY or OpenAI Status -> https://status.openai.com/")
         
     
