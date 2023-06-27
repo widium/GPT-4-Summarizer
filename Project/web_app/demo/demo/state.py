@@ -20,18 +20,17 @@ from time import sleep
 from functions.utils.file import read_content
 
 from model.api import verify_api_key, setup_api_key
-from model.core import TextSummarizerModel
+from model.summarizer.core import TextSummarizerModel
 from model.tokenization import count_tokens_in_message
 
 DATA_PATH = Path("/home/widium/Programming/AI/GPT4-Summarizer/Project/prompt") 
 
-ROLE_PATH = DATA_PATH / "role" / "role.txt"
-PRE_PROMPT_PATH = DATA_PATH / "role" / "pre-prompt.txt"
+ROLE_PATH = DATA_PATH / "role" / "simple_summarizer.txt"
 MODEL = "gpt-3.5-turbo" #"text-davinci-003"
 
 summarizer = TextSummarizerModel(
     model_version=MODEL,
-    pre_prompt_path=PRE_PROMPT_PATH,
+    role_path=ROLE_PATH,
 )
 
 class SummaryState(pc.State):
@@ -57,13 +56,15 @@ class SummaryState(pc.State):
         self.api_key = ""
         self.is_valid = False
         
+    def clear_content(self):
+        self.content = ""
+        
     def text_processing(self):
         
         self.processing = True 
         self.is_finish = False
         
         self.messages = summarizer.processing(
-            role_path=ROLE_PATH,
             content=self.content,
         )
     

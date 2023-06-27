@@ -24,16 +24,27 @@ def create_input_box()->pc.Component:
     
     input_text = pc.text_area(
         placeholder="Paste Text Here", 
-        on_blur=[SummaryState.set_content]
+        value=SummaryState.content,
+        on_change=[SummaryState.set_content],
+        height="500px",
     )
     
-    button = pc.button(
+    submit_button = pc.button(
         "Summarize Text", 
         on_click=[
             SummaryState.text_processing, 
             SummaryState.count_token,
             SummaryState.summarization
         ],
+    )
+    
+    clear_button = pc.button(
+        "Clear Text",
+        on_click=[SummaryState.clear_content]
+    )
+    
+    buttons = pc.hstack(
+        submit_button, clear_button
     )
     
     conditional_color = pc.cond(
@@ -58,7 +69,7 @@ def create_input_box()->pc.Component:
     stack = pc.vstack(
         heading,
         input_text,
-        button,
+        buttons,
         tokens_counter,
         spacing="3em",
     )

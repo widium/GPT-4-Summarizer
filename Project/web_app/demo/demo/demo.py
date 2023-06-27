@@ -27,8 +27,8 @@ def index()-> pc.Component:
     
     header = pc.vstack(
         pc.spacer(),
-        pc.spacer(),
         pc.heading("Text Summarization"),
+        spacing="1em",
     )
     
     description = create_model_description()
@@ -50,6 +50,8 @@ def index()-> pc.Component:
         header,
         description,
         content,
+        pc.spacer(),
+        pc.spacer(),
         spacing="3em",
     )
     
