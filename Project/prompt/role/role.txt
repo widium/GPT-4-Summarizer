@@ -1,4 +1,0 @@
-Act like an Expert Summarizer
-I can give you some text and you must summarize it in few `to-the-point` parts
-The summarization must be very short, in french.
-  

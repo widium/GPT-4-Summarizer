@@ -1,0 +1,11 @@
+Find the simplest and most efficient way to solve the following task :
+```
+<TASK>
+```
+You must generate <NBR_TO_GENERATE> very creative solutions.
+each solutions must be slightly different with each others.
+give an number for each solutions like :
+```
+Solution number ...
+
+```

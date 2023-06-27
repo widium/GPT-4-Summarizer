@@ -1,0 +1,36 @@
+The Task:
+```
+<TASK>
+```
+The Solutions :
+```
+<SOLUTIONS>
+```
+For each solutions create a card with the following information inside:
+- Explanation of his potential related to the task : Considering his pros and cons, initial effort needed, implementation difficulty,
+potential challenges, and the expected outcomes. 
+- Assignation of a success probability related to the task
+- Assignation of a confidence level probability related to the task
+- Initial Solution Content : keep the initial content of the solution inside the card.
+Each card must be in this format:
+```
+Solution number ...
+Success rate : ...%
+Confidence level : ...%
+Explanation of solution potential: ...
+Initial Solution Content: 
+"""
+...
+"""
+```
+After That :
+Extract ONLY the best rated idea.
+- adds an explanation for why this solution is the best.
+- Keep Solution information: keep all the information of solution you have choose to keep in your answer, like his rating, content, explanation.... 
+The format of the answer must be like :
+```
+Solution number ...
+Explanation for why it's the best : ...
+Solution information: 
+...
+```

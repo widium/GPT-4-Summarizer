@@ -1,0 +1,21 @@
+the Solutions :
+```
+<SOLUTIONS>
+```
+In the proposed solutions :
+- Remove all the low rated Ideas and keep ONLY the Best rated idea.
+- adds an explanation for why this solution is the best related to the task.
+- Keep Solution information: keep all the information of solution you have choose to keep in your answer, like his rating, content, explanation.... 
+The format of the answer must be like :
+```
+Solution number ...
+Explanation for why it's the best : ...
+Solution information: 
+~~~
+Solution number ...
+Success rate : ...%
+Confidence level : ...%
+Explanation of solution potential: ...
+Initial Solution Content: 
+~~~
+```

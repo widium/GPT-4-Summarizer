@@ -1,0 +1,6 @@
+I give you some text and you must summarize it in few `to-the-point` parts
+The summarization must be simple to understand and represent the global content.
+The content to summary :
+```
+<CONTENT>
+``` 

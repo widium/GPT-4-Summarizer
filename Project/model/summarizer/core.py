@@ -18,22 +18,25 @@ from openai import Completion
 from openai import ChatCompletion
 
 from functions.utils.file import read_content
+from functions.utils.file import renplace_token
 
 class TextSummarizerModel:
     
-    def __init__(self, model_version : str, pre_prompt_path : str):
+    def __init__(self, model_version : str, role_path : str):
         
         self.model = model_version
-        self.pre_prompting = read_content(filepath=pre_prompt_path)
+        self.role = read_content(filepath=role_path)
     
-    def processing(self, role_path : str, content : str):
+    def processing(self, content : str):
         
-        role = read_content(filepath=role_path)
-        content = self.pre_prompting.replace("content", content)
+        prompt = renplace_token(
+            prompt=self.role,
+            token="<CONTENT>",
+            value=content,
+        )
         
         messages = [
-            {"role" : "system", "content" : role},
-            {"role" : "assistant", "content" : content},
+            {"role" : "system", "content" : prompt},
         ]
         
         return (messages)

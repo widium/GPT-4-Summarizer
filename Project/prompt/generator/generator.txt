@@ -1,0 +1,14 @@
+You must generate <NBR_TO_GENERATE> very creative distinct solutions for the following task :
+```
+<TASK>
+```
+You must include the following solution in your reasoning and beat his score :
+```
+<PREVIOUS_WINNER>
+```
+
+Make sur to format your response with ID for each solutions like :
+```
+Solution number ...
+
+```

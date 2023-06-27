@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+from typing import List 
 from pathlib import Path
 
 def read_content(filepath : str)->str:
@@ -39,3 +40,17 @@ def read_content(filepath : str)->str:
     content = path.read_text()
     
     return (content)
+
+def renplace_token(prompt : str, token : str, value : str):
+    prompt = prompt.replace(token, value)
+    return (prompt)
+
+def verify_file_path(filepaths : List[Path]):
+   
+    for path in filepaths:
+        if not path.exists():
+            raise FileNotFoundError(f"{path} doesn't already exist...")
+        else:
+            print(f"[INFO] : {path} already exist")
+
+    
