@@ -9,4 +9,4 @@ cd Project/web_app/demo
 pc run
 ~~~
 
-![](https://i.imgur.com/3icLHEY.png)
+![](https://i.imgur.com/0aQDUsN.png)
