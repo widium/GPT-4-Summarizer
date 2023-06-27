@@ -1,2 +1,3 @@
 openai==0.27.8
 pynecone==0.1.28
+tiktoken==0.4.0
