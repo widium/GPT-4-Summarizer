@@ -1,4 +1,4 @@
-1. Install Dependencies
+1. Install Dependencies with `python==3.8.0`
 ~~~bash
 pip install --upgrade pip
 pip install -r requirements.txt
