@@ -32,7 +32,7 @@ from .selector import ToughtSelector
 
 from .. api import setup_api_key
 
-setup_api_key(key="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")
+setup_api_key(key="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")
 
 class TreeOfToughtModel:
     
@@ -87,9 +87,9 @@ class TreeOfToughtModel:
             prompt_file_path=evaluator_path,
         )
         
-        # self.selector = ToughtSelector(
-        #     prompt_file_path=selector_path,
-        # )
+        self.selector = ToughtSelector(
+            prompt_file_path=selector_path,
+        )
         
             
     
@@ -145,9 +145,6 @@ class TreeOfToughtModel:
             task=self.task,
         )
         
-        print("---- PROMPT EVALUATION -----\n")
-        pprint(message)
-        
         evaluation = self.gpt_response(messages=[message])
         return (evaluation)
     
@@ -167,8 +164,8 @@ class TreeOfToughtModel:
         print("\n---- FIRST SOLUTIONS : ----\n", first_solutions)
         evaluation = self.evaluate_solutions(solutions=first_solutions)
         print("\n---- EVALUATION : ----\n", evaluation)
-        # selection = self.select_solutions(evaluation=evaluation)
-        # print("\n---- SELECTION: ----\n", selection)
+        selection = self.select_solutions(evaluation=evaluation)
+        print("\n---- SELECTION: ----\n", selection)
         # return (selection)
         
         
